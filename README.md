@@ -1,9 +1,10 @@
 ## use-open-window
 
 [![npm](https://img.shields.io/npm/l/hooked-react-stopwatch.svg)](https://www.npmjs.com/package/use-open-window)
-[![Coverage Status](https://coveralls.io/repos/github/bartlomiejzuber/hooked-react-stopwatch/badge.svg)](https://coveralls.io/github/bartlomiejzuber/hooked-react-stopwatch)
-[![Build Status](https://travis-ci.org/bartlomiejzuber/hooked-react-stopwatch.svg?branch=master)](https://travis-ci.org/bartlomiejzuber/hooked-react-stopwatch)
-[![License](https://img.shields.io/npm/v/hooked-react-stopwatch.svg)](https://github.com/bartlomiejzuber/hooked-bitcoin-text-editor/blob/master/LICENSE)
+[![npm](https://img.shields.io/bundlephobia/min/use-open-window)](https://www.npmjs.com/package/use-open-window)
+[![Coverage Status](https://coveralls.io/repos/github/bartlomiejzuber/use-open-window/badge.svg)](https://coveralls.io/github/bartlomiejzuber/use-open-window)
+[![Build Status](https://travis-ci.org/bartlomiejzuber/use-open-window.svg?branch=master)](https://travis-ci.org/bartlomiejzuber/use-open-window)
+[![License](https://img.shields.io/npm/v/use-open-window.svg)](https://github.com/bartlomiejzuber/use-open-window/blob/master/LICENSE)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/687ea567-73f1-43ad-98c8-18c33994a609/deploy-status)](https://app.netlify.com/sites/hooked-react-stopwatch/deploys)
 <p align="center">
   <img src="https://github.com/Bajtas/bjts-react-stopwatch/blob/master/images/stopwatch.jpg?raw=true" alt="How component looks"/>
