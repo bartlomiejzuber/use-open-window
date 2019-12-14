@@ -1,8 +1,8 @@
 {
-  "name": "use-open-in-window",
+  "name": "use-open-window",
   "version": "0.9.0",
   "description": "Fancy React hook for open links in windows",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "check-types": "tsc --noEmit",
     "check-types:watch": "yarn check-types --watch",
@@ -47,13 +47,14 @@
   },
   "keywords": [
     "react",
-    "hook",
-    "windows",
     "use",
+    "hook",
     "open",
     "links",
     "new",
-    "window"
+    "window",
+    "separate",
+    "centered"
   ],
   "author": "Bartlomiej Zuber (bartlomiej.zuber@outlook.com)",
   "license": "MIT",
