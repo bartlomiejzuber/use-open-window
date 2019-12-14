@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "esnext",
+		"jsx": "react",
+		"resolveJsonModule": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"esModuleInterop": true,
+		"importHelpers": true,
+		"outDir": "dist/",
+		"types": ["react", "jest"]
+	},
+	"include": ["src/**/*"],
+	"exclude": [
+		"node_modules",
+		"**/*.spec.ts",
+		"**/*.test.tsx",
+		"**/__snapshots__"
+	]
+}

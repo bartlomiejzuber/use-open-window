@@ -1,0 +1,64 @@
+{
+  "name": "use-open-in-window",
+  "version": "0.9.0",
+  "description": "Fancy React hook for open links in windows",
+  "main": "index.js",
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "check-types:watch": "yarn check-types --watch",
+    "lint": "yarn eslint ./src/**/*.{ts,tsx}",
+    "lint-fix": "yarn lint --fix",
+    "build": "yarn build:types && yarn build:js",
+    "build:types": "tsc --declaration true --emitDeclarationOnly",
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps true",
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "@testing-library/react": "^9.4.0",
+    "@types/jest": "^24.0.18",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.1",
+    "babel-preset-minify": "^0.5.1",
+    "jest": "^24.9.0",
+    "mocha": "^6.2.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "ts-jest": "^24.1.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.6.4"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bartlomiejzuber/useOpenInWindow.git"
+  },
+  "keywords": [
+    "react",
+    "hook",
+    "windows",
+    "use",
+    "open",
+    "links",
+    "new",
+    "window"
+  ],
+  "author": "Bartlomiej Zuber (bartlomiej.zuber@outlook.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bartlomiejzuber/useOpenInWindow/issues"
+  },
+  "homepage": "https://github.com/bartlomiejzuber/useOpenInWindow#readme"
+}
