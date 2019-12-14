@@ -1,4 +1,4 @@
-## hooked-react-stopwatch
+## useOpenInWindow
 
 [![npm](https://img.shields.io/npm/l/hooked-react-stopwatch.svg)](https://www.npmjs.com/package/hooked-react-stopwatch)
 [![Coverage Status](https://coveralls.io/repos/github/bartlomiejzuber/hooked-react-stopwatch/badge.svg)](https://coveralls.io/github/bartlomiejzuber/hooked-react-stopwatch)
