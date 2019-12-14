@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/npm/v/use-open-window.svg)](https://github.com/bartlomiejzuber/use-open-window/blob/master/LICENSE)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/687ea567-73f1-43ad-98c8-18c33994a609/deploy-status)](https://app.netlify.com/sites/hooked-react-stopwatch/deploys)
 <p align="center">
-  <img src="https://github.com/Bajtas/bjts-react-stopwatch/blob/master/assets/icon.png?raw=true" alt="hook icon"/>
+  <img src="https://github.com/bartlomiejzuber/use-open-window/blob/master/assets/icon.png" alt="hook icon"/>
 </p>
 
 Useful & super tiny (:heart:obvious dep on React only) hook to open links in new window.
