@@ -7,11 +7,10 @@
 [![License](https://img.shields.io/npm/v/use-open-window.svg)](https://github.com/bartlomiejzuber/use-open-window/blob/master/LICENSE)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/687ea567-73f1-43ad-98c8-18c33994a609/deploy-status)](https://app.netlify.com/sites/hooked-react-stopwatch/deploys)
 <p align="center">
-  <img src="https://github.com/Bajtas/bjts-react-stopwatch/blob/master/images/stopwatch.jpg?raw=true" alt="How component looks"/>
+  <img src="https://github.com/Bajtas/bjts-react-stopwatch/blob/master/assets/icon.png?raw=true" alt="hook icon"/>
 </p>
 
-Highly extensible, created without single `class` used but with pure :heart: to Hooks API.
-Shipped with basic CSS style!
+Useful & super tiny (:heart:obvious dep on React only) hook to open links in new window.
 
 [DEMO](https://hooked-react-stopwatch.netlify.com/)
 
@@ -19,58 +18,72 @@ Shipped with basic CSS style!
 ## Installation
 
 ```sh
-npm i hooked-react-stopwatch --save
+npm i use-open-window --save
 ```
 
 Alternatively you may use `yarn`:
 
 ```sh
-yarn add hooked-react-stopwatch
+yarn add use-open-window
 ```
 
 Link to npm:
-[https://www.npmjs.com/package/hooked-react-stopwatch](https://www.npmjs.com/package/hooked-react-stopwatch)
+[https://www.npmjs.com/package/use-open-window](https://www.npmjs.com/package/use-open-window)
 
 ## Usage
 
 ```javascript
-import React, { Component } from 'react';
-import { Stopwatch } from "hooked-react-stopwatch";
-import "hooked-react-stopwatch/css/style.css"; // optional
+import React from 'react';
+import { useOpenInWindow }  from 'use-open-window';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Stopwatch />
-      </div>
-    );
-  }
+const url = 'https://www.google.com/';
+const options = {
+   centered: true, /* default */
+   spec: {
+      width: 800, /* window width */
+      height: 600, /* window height */
+   }
+};
+const App = () => {
+  const [handleWindowOpen, newWindowHandle] = useOpenInWindow(url);
+  
+  return (
+    <div className="App">
+      <div onClick={handleWindowOpen}>Click me</div>
+    </div>
+  );
 }
 
 export default App;
 ```
 
-### Props
+### Hook params
 
-```javascript
-StopWatch.propTypes = {
-  // custom classNames
-  stopwatchClassName: PropTypes.string,
-  timeContainerClassName: PropTypes.string,
-  controlsClassName: PropTypes.string,
-  playIconClassName: PropTypes.string,
-  pauseIconClassName: PropTypes.string,
-  resetIconClassName: PropTypes.string,
-  renderControls: PropTypes.func, // custom render function for controls section
-  hideHours: PropTypes.bool, // hide hours
-  hideMinutes: PropTypes.bool, // hide minutes
-  hideSeconds: PropTypes.bool, // hide seconds
-  hideMilliseconds: PropTypes.bool, // hide milliseconds
-  separators: PropTypes.arrayOf(PropTypes.string) // separators to use between hours/minutes/seconds/milliseconds
-  // separator use example: [":"/*separatorBetweenHoursAndMinutes*/, ":"/*separatorBetweenMinutesAndSeconds*/, "."/*separatorBetweenSecondsAndMilliseconds*/]
-};
-```
+| Parameter | Type                   | Description                                             | Required |
+|-----------|------------------------|---------------------------------------------------------|----------|
+| url       | string                 | Url to load inside new window                           | Y        |
+| options   | UseOpenInWindowOptions | Set of hook options (centered, focus, window size etc.) | N        |
+
+#### Options
+
+| Option       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Default   |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| name         | Specifies the target attribute or the name of the window. The following values are supported:<br><br>        _blank - URL is loaded into a new window, or tab.<br><br>        _parent - URL is loaded into the parent frame<br><br>        _self - URL replaces the current page<br><br>        _top - URL replaces any framesets that may be loaded<br><br>        name - The name of the window (Note: the name does not specify the title of the new window) | _blank    |
+| centered     | Specifies if window should be centered                                                                                                                                                                                                                                                                                                                                                                                                                          | true      |
+| focus        | Puts new window in focus                                                                                                                                                                                                                                                                                                                                                                                                                                        | true      |
+| specs.width  | The height of the window. Min. value is 100 (browser restriction).                                                                                                                                                                                                                                                                                                                                                                                              | 800       |
+| specs.height | The width of the window. Min. value is 100 (browser restriction).                                                                                                                                                                                                                                                                                                                                                                                               | 800       |
+| left         | The left position of the window. Negative values not allowed.                                                                                                                                                                                                                                                                                                                                                                                                   | undefined |
+| top          | The top position of the window. Negative values not allowed.                                                                                                                                                                                                                                                                                                                                                                                                    | undefined |
+| channelmode  | Whether or not to display the window in theater mode. IE only                                                                                                                                                                                                                                                                                                                                                                                                   | 'no'      |
+| fullscreen   | Whether or not to display the browser in full-screen mode. A window in full-screen mode must also be in theater mode. IE only.                                                                                                                                                                                                                                                                                                                                  | 'no'      |
+| location     | Whether or not to display the address field. Opera only.                                                                                                                                                                                                                                                                                                                                                                                                        | null      |
+| menubar      | Whether or not to display the menu bar.                                                                                                                                                                                                                                                                                                                                                                                                                         | null      |
+| resizable    | Whether or not the window is resizable. IE only.                                                                                                                                                                                                                                                                                                                                                                                                                | null      |
+| scrollbars   | Whether or not to display scroll bars. IE, Firefox & Opera only.                                                                                                                                                                                                                                                                                                                                                                                                | null      |
+| status       | Whether or not to add a status bar                                                                                                                                                                                                                                                                                                                                                                                                                              | null      |
+| titlebar     | Whether or not to display the title bar. Ignored unless the calling application is an HTML Application or a trusted dialog box.                                                                                                                                                                                                                                                                                                                                 | null      |
+| toolbar      | Whether or not to display the browser toolbar. IE and Firefox only.                                                                                                                                                                                                                                                                                                                                                                                             | null      |
 
 License:
 --------
