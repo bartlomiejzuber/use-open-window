@@ -6,7 +6,6 @@
 		"resolveJsonModule": true,
 		"noImplicitAny": true,
 		"strictNullChecks": true,
-		"removeComments": true,
 		"preserveConstEnums": true,
 		"esModuleInterop": true,
 		"importHelpers": true,

@@ -1,9 +1,0 @@
-{
-  "presets": ["@babel/preset-env", "@babel/typescript", "@babel/preset-react"],
-  "plugins": [
-    "minify-simplify",
-    ["babel-plugin-minify-dead-code-elimination", { "optimizeRawSize": true }]
-  ],
-  "ignore": ["**/*.test.tsx"],
-  "comments": false
-}
