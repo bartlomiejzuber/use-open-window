@@ -1,6 +1,6 @@
-## useOpenInWindow
+## use-open-window
 
-[![npm](https://img.shields.io/npm/l/hooked-react-stopwatch.svg)](https://www.npmjs.com/package/hooked-react-stopwatch)
+[![npm](https://img.shields.io/npm/l/hooked-react-stopwatch.svg)](https://www.npmjs.com/package/use-open-window)
 [![Coverage Status](https://coveralls.io/repos/github/bartlomiejzuber/hooked-react-stopwatch/badge.svg)](https://coveralls.io/github/bartlomiejzuber/hooked-react-stopwatch)
 [![Build Status](https://travis-ci.org/bartlomiejzuber/hooked-react-stopwatch.svg?branch=master)](https://travis-ci.org/bartlomiejzuber/hooked-react-stopwatch)
 [![License](https://img.shields.io/npm/v/hooked-react-stopwatch.svg)](https://github.com/bartlomiejzuber/hooked-bitcoin-text-editor/blob/master/LICENSE)
