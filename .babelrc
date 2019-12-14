@@ -1,12 +1,8 @@
 {
   "presets": ["@babel/preset-env", "@babel/typescript", "@babel/preset-react"],
   "plugins": [
-    "@babel/proposal-class-properties",
-    "@babel/proposal-object-rest-spread",
     "minify-simplify",
-    ["babel-plugin-minify-dead-code-elimination", { "optimizeRawSize": true }],
-    ["@babel/plugin-proposal-optional-chaining"],
-    "@babel/plugin-transform-runtime"
+    ["babel-plugin-minify-dead-code-elimination", { "optimizeRawSize": true }]
   ],
   "ignore": ["**/*.test.tsx"],
   "comments": false
