@@ -10,8 +10,7 @@
   <img src="https://github.com/Bajtas/bjts-react-stopwatch/blob/master/images/stopwatch.jpg?raw=true" alt="How component looks"/>
 </p>
 
-Highly extensible, created without single `class` used but with pure :heart: to Hooks API.
-Shipped with basic CSS style!
+Useful & super tiny (:heart:obvious dep on React only) hook to open links in new window.
 
 [DEMO](https://hooked-react-stopwatch.netlify.com/)
 
@@ -19,57 +18,55 @@ Shipped with basic CSS style!
 ## Installation
 
 ```sh
-npm i hooked-react-stopwatch --save
+npm i use-open-window --save
 ```
 
 Alternatively you may use `yarn`:
 
 ```sh
-yarn add hooked-react-stopwatch
+yarn add use-open-window
 ```
 
 Link to npm:
-[https://www.npmjs.com/package/hooked-react-stopwatch](https://www.npmjs.com/package/hooked-react-stopwatch)
+[https://www.npmjs.com/package/use-open-window](https://www.npmjs.com/package/use-open-window)
 
 ## Usage
 
 ```javascript
-import React, { Component } from 'react';
-import { Stopwatch } from "hooked-react-stopwatch";
-import "hooked-react-stopwatch/css/style.css"; // optional
+import React from 'react';
+import { useOpenInWindow }  from 'use-open-window';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Stopwatch />
-      </div>
-    );
-  }
+const url = 'https://www.google.com/';
+const options = {
+   centered: true, /* default */
+   spec: {
+      width: 800, /* window width */
+      height: 600, /* window height */
+   }
+};
+const App = () => {
+  const [handleWindowOpen, newWindowHandle] = useOpenInWindow(url);
+  
+  return (
+    <div className="App">
+      <div onClick={handleWindowOpen}>Click me</div>
+    </div>
+  );
 }
 
 export default App;
 ```
 
-### Props
+### Hook params
 
-```javascript
-StopWatch.propTypes = {
-  // custom classNames
-  stopwatchClassName: PropTypes.string,
-  timeContainerClassName: PropTypes.string,
-  controlsClassName: PropTypes.string,
-  playIconClassName: PropTypes.string,
-  pauseIconClassName: PropTypes.string,
-  resetIconClassName: PropTypes.string,
-  renderControls: PropTypes.func, // custom render function for controls section
-  hideHours: PropTypes.bool, // hide hours
-  hideMinutes: PropTypes.bool, // hide minutes
-  hideSeconds: PropTypes.bool, // hide seconds
-  hideMilliseconds: PropTypes.bool, // hide milliseconds
-  separators: PropTypes.arrayOf(PropTypes.string) // separators to use between hours/minutes/seconds/milliseconds
-  // separator use example: [":"/*separatorBetweenHoursAndMinutes*/, ":"/*separatorBetweenMinutesAndSeconds*/, "."/*separatorBetweenSecondsAndMilliseconds*/]
-};
+| Parameter | Type                   | Description                                             | Required |
+|-----------|------------------------|---------------------------------------------------------|----------|
+| url       | string                 | Url to load inside new window                           | Y        |
+| options   | UseOpenInWindowOptions | Set of hook options (centered, focus, window size etc.) | N        |
+
+```typescript
+ url: string
+ options: UseOpenInWindowOptions
 ```
 
 License:
