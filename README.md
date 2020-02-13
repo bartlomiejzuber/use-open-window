@@ -12,9 +12,6 @@
 
 Useful & super tiny (:heart:obvious dep on React only) hook to open links in new window.
 
-[DEMO](https://hooked-react-stopwatch.netlify.com/)
-
-
 ## Installation
 
 ```sh
