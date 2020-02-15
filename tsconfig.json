@@ -3,10 +3,10 @@
 		"module": "commonjs",
 		"target": "esnext",
 		"jsx": "react",
-		"resolveJsonModule": true,
 		"noImplicitAny": true,
 		"strictNullChecks": true,
 		"preserveConstEnums": true,
+		"sourceMap": false,
 		"esModuleInterop": true,
 		"importHelpers": true,
 		"outDir": "dist/",
@@ -17,6 +17,7 @@
 		"node_modules",
 		"**/*.spec.ts",
 		"**/*.test.tsx",
+		"**/*.test.ts",
 		"**/__snapshots__"
 	]
 }
