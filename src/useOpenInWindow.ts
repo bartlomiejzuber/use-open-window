@@ -63,29 +63,36 @@ const defaultOptions: Required<UseOpenInWindowOptions> = {
 
 const useOpenInWindow = (url: string, options: UseOpenInWindowOptions = {}) => {
   const [newWindowHandler, setNewWindowHandler] = useState<Window | null>();
-  const openInWindow = useCallback(() => {
-    const { specs } = options;
-    const { specs: defaultSpecs } = defaultOptions;
-    const mixedOptions = { ...defaultOptions, ...options };
-    const mixedSpecs = { ...defaultSpecs, ...specs };
-    const { focus, name, centered } = mixedOptions;
-    let windowOptions = '';
+  const openInWindow = useCallback(
+    (event: React.MouseEvent) => {
+      if (event) {
+        event.preventDefault();
+      }
 
-    if (centered) {
-      const { width, height, ...restSpecs } = mixedSpecs;
-      const centerPoint = calculateCenterPoint(width, height);
-      windowOptions = windowOptionsMapper({ width, height, ...centerPoint, ...restSpecs });
-    } else {
-      windowOptions = windowOptionsMapper(mixedSpecs);
-    }
+      const { specs } = options;
+      const { specs: defaultSpecs } = defaultOptions;
+      const mixedOptions = { ...defaultOptions, ...options };
+      const mixedSpecs = { ...defaultSpecs, ...specs };
+      const { focus, name, centered } = mixedOptions;
+      let windowOptions = '';
 
-    const newWindow = window.open(url, name, windowOptions);
+      if (centered) {
+        const { width, height, ...restSpecs } = mixedSpecs;
+        const centerPoint = calculateCenterPoint(width, height);
+        windowOptions = windowOptionsMapper({ width, height, ...centerPoint, ...restSpecs });
+      } else {
+        windowOptions = windowOptionsMapper(mixedSpecs);
+      }
 
-    // Puts focus on the newWindow
-    if (focus && newWindow) newWindow.focus();
+      const newWindow = window.open(url, name, windowOptions);
 
-    setNewWindowHandler(newWindow);
-  }, [url, options, setNewWindowHandler]);
+      // Puts focus on the newWindow
+      if (focus && newWindow) newWindow.focus();
+
+      setNewWindowHandler(newWindow);
+    },
+    [url, options, setNewWindowHandler]
+  );
 
   return [openInWindow, newWindowHandler] as [() => void, Window | null | undefined];
 };
