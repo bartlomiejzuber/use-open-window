@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { fireEvent, render } from '@testing-library/react';
 
-import useOpenInWindow from './useOpenInWindow';
+import { useOpenInWindow } from './useOpenInWindow';
 
 describe('useOpenInWindow()', () => {
   it('should wait for callback invoke', () => {
@@ -81,6 +81,10 @@ describe('useOpenInWindow()', () => {
     const { getByTestId } = render(<HookTestComponent />);
     fireEvent.click(getByTestId('onClickHandler'));
 
-    expect(windowOpenMock).toHaveBeenCalledWith(expect.any(String), expect.not.stringContaining('top=0'), expect.any(String));
+    expect(windowOpenMock).toHaveBeenCalledWith(
+      expect.any(String),
+      expect.not.stringContaining('top=0'),
+      expect.any(String)
+    );
   });
 });
