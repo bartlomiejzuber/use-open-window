@@ -50,7 +50,7 @@ export interface UseOpenInWindowOptions {
   };
 }
 
-const defaultOptions: Required<UseOpenInWindowOptions> = {
+export const defaultOptions: Required<UseOpenInWindowOptions> = {
   name: '_blank',
   centered: true,
   focus: true,
@@ -61,7 +61,7 @@ const defaultOptions: Required<UseOpenInWindowOptions> = {
   }
 };
 
-const useOpenInWindow = (url: string, options: UseOpenInWindowOptions = {}) => {
+export const useOpenInWindow = (url: string, options: UseOpenInWindowOptions = {}) => {
   const [newWindowHandler, setNewWindowHandler] = useState<Window | null>();
   const openInWindow = useCallback(
     (event: React.MouseEvent) => {
@@ -96,5 +96,3 @@ const useOpenInWindow = (url: string, options: UseOpenInWindowOptions = {}) => {
 
   return [openInWindow, newWindowHandler] as [() => void, Window | null | undefined];
 };
-
-export default useOpenInWindow;

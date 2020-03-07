@@ -1,0 +1,9 @@
+node_modules
+src
+coverage
+assets
+.circleci
+.travis.yml
+yarn-error.log
+yarn.lock
+jest.config.js
