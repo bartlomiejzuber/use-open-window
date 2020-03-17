@@ -8,7 +8,7 @@
     "check-types:watch": "yarn check-types --watch",
     "lint": "yarn eslint ./src/**/*.{ts,tsx}",
     "lint-fix": "yarn lint --fix",
-    "build": "tsc -d",
+    "build": "tsdx build --format cjs,esm,umd -d",
     "test": "jest",
     "coverage": "jest --coverage"
   },
@@ -22,6 +22,7 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "ts-jest": "^24.1.0",
+    "tsdx": "^0.12.3",
     "tslib": "^1.10.0",
     "typescript": "^3.6.4"
   },
