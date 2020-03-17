@@ -1,7 +1,8 @@
 {
 	"compilerOptions": {
 		"module": "commonjs",
-		"target": "esnext",
+		"target": "es5",
+		"lib": ["ESNext", "DOM"],
 		"jsx": "react",
 		"noImplicitAny": true,
 		"strictNullChecks": true,
