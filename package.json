@@ -1,6 +1,6 @@
 {
   "name": "use-open-window",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Fancy React hook for open links in windows",
   "main": "dist/index.js",
   "scripts": {
