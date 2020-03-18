@@ -3,6 +3,11 @@
   "version": "1.2.2",
   "description": "Fancy React hook for open links in windows",
   "main": "dist/index.js",
+  "module": "dist/use-open-window.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "check-types": "tsc --noEmit",
     "check-types:watch": "yarn check-types --watch",
