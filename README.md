@@ -12,7 +12,7 @@
   <img src="https://raw.githubusercontent.com/bartlomiejzuber/use-open-window/master/assets/icon.png" alt="hook icon"/>
 </p>
 
-Useful & super tiny (less than 1KB :heavy-check-mark:) (:heart:obvious dep on React only) hook to open links in new window.
+Useful & super tiny (less than 1KB ✔️) (❤️obvious dep on React only) hook to open links in new window.
 
 ## Installation
 
@@ -86,7 +86,7 @@ export default App;
 
 Dependencies ![Deps](https://badgen.net/npm/dependents/use-open-window)
 --------
-None. Self source code only.
+None. Self source code only. (❤️obvious peer dep on React only)
 
 Reliability
 --------
