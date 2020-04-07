@@ -32,8 +32,8 @@
     "typescript": "^3.6.4"
   },
   "peerDependencies": {
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "repository": {
     "type": "git",
