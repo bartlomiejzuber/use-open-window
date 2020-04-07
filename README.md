@@ -1,7 +1,9 @@
 ## use-open-window
 
+![react hook](https://badgen.net/badge/icon/react-hook?icon=libraries&label)
+![fully typed](https://badgen.net/badge/icon/fully-typed?icon=typescript&label)
 [![npm](https://img.shields.io/npm/l/hooked-react-stopwatch.svg)](https://www.npmjs.com/package/use-open-window)
-[![npm](https://img.shields.io/bundlephobia/min/use-open-window)](https://www.npmjs.com/package/use-open-window)
+[![npm](https://badgen.net/bundlephobia/minzip/use-open-window)](https://www.npmjs.com/package/use-open-window)
 [![Coverage Status](https://coveralls.io/repos/github/bartlomiejzuber/use-open-window/badge.svg)](https://coveralls.io/github/bartlomiejzuber/use-open-window)
 [![Build Status](https://travis-ci.org/bartlomiejzuber/use-open-window.svg?branch=master)](https://travis-ci.org/bartlomiejzuber/use-open-window)
 [![License](https://img.shields.io/npm/v/use-open-window.svg)](https://github.com/bartlomiejzuber/use-open-window/blob/master/LICENSE)
@@ -10,7 +12,7 @@
   <img src="https://raw.githubusercontent.com/bartlomiejzuber/use-open-window/master/assets/icon.png" alt="hook icon"/>
 </p>
 
-Useful & super tiny (:heart:obvious dep on React only) hook to open links in new window.
+Useful & super tiny (less than 1KB :heavy-check-mark:) (:heart:obvious dep on React only) hook to open links in new window.
 
 ## Installation
 
@@ -81,6 +83,10 @@ export default App;
 | status       | Whether or not to add a status bar                                                                                                                                                                                                                                                                                                                                                                                                                              | null      |
 | titlebar     | Whether or not to display the title bar. Ignored unless the calling application is an HTML Application or a trusted dialog box.                                                                                                                                                                                                                                                                                                                                 | null      |
 | toolbar      | Whether or not to display the browser toolbar. IE and Firefox only.                                                                                                                                                                                                                                                                                                                                                                                             | null      |
+
+Dependencies ![Deps](https://badgen.net/npm/dependents/use-open-window)
+--------
+None. Self source code only.
 
 Reliability
 --------
