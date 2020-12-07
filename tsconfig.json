@@ -11,7 +11,7 @@
 		"esModuleInterop": true,
 		"importHelpers": true,
 		"outDir": "dist/",
-		"types": ["react", "jest"]
+		"types": ["react", "jest", "node"]
 	},
 	"include": ["src/**/*"],
 	"exclude": [
