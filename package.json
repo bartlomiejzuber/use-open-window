@@ -14,7 +14,7 @@
     "lint": "yarn eslint ./src/**/*.{ts,tsx}",
     "lint-fix": "yarn lint --fix",
     "build": "tsdx build --format cjs,esm,umd -d",
-    "build-demo": "cd demo && yarn build",
+    "build-demo": "cd demo && yarn && yarn build",
     "test": "jest",
     "coverage": "jest --coverage"
   },
