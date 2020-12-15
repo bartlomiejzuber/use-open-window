@@ -7,6 +7,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/bartlomiejzuber/use-open-window/badge.svg)](https://coveralls.io/github/bartlomiejzuber/use-open-window)
 [![Build Status](https://travis-ci.org/bartlomiejzuber/use-open-window.svg?branch=master)](https://travis-ci.org/bartlomiejzuber/use-open-window)
 [![License](https://img.shields.io/npm/v/use-open-window.svg)](https://github.com/bartlomiejzuber/use-open-window/blob/master/LICENSE)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d360c27d-3707-4eb8-a0bd-b6e0d65a3e22/deploy-status)](https://app.netlify.com/sites/use-open-window-demo/deploys)
 <p align="center">
   <img src="https://raw.githubusercontent.com/bartlomiejzuber/use-open-window/master/assets/icon.png" alt="hook icon"/>
 </p>
