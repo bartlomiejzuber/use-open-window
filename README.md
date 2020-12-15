@@ -56,6 +56,8 @@ const App = () => {
 export default App;
 ```
 
+[DEMO](https://use-open-window-demo.netlify.app/)
+
 ### Hook params
 
 | Parameter | Type                   | Description                                             | Required |
