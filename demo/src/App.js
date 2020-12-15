@@ -11,7 +11,7 @@ const options = {
 };
 
 const App = () => {
-  const [handleWindowOpen, newWindowHandle] = useOpenInWindow(url, options);
+  const [handleWindowOpen] = useOpenInWindow(url, options);
   
   return (
     <div className="App">
