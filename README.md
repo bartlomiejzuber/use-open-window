@@ -7,7 +7,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/bartlomiejzuber/use-open-window/badge.svg)](https://coveralls.io/github/bartlomiejzuber/use-open-window)
 [![Build Status](https://travis-ci.org/bartlomiejzuber/use-open-window.svg?branch=master)](https://travis-ci.org/bartlomiejzuber/use-open-window)
 [![License](https://img.shields.io/npm/v/use-open-window.svg)](https://github.com/bartlomiejzuber/use-open-window/blob/master/LICENSE)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/687ea567-73f1-43ad-98c8-18c33994a609/deploy-status)](https://app.netlify.com/sites/hooked-react-stopwatch/deploys)
 <p align="center">
   <img src="https://raw.githubusercontent.com/bartlomiejzuber/use-open-window/master/assets/icon.png" alt="hook icon"/>
 </p>
