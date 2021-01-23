@@ -6,6 +6,7 @@ import { windowOptionsMapper } from './windowOptionsMapper';
 export type SpecsOption = 'yes' | 'no' | 1 | 0;
 
 export interface UseOpenInWindowOptions {
+  url: string,
   /* Specifies the target attribute or the name of the window. The following values are supported:
         _blank - URL is loaded into a new window, or tab. This is default
         _parent - URL is loaded into the parent frame
@@ -51,6 +52,7 @@ export interface UseOpenInWindowOptions {
 }
 
 export const defaultOptions: Required<UseOpenInWindowOptions> = {
+  url: '',
   name: '_blank',
   centered: true,
   focus: true,
@@ -61,18 +63,19 @@ export const defaultOptions: Required<UseOpenInWindowOptions> = {
   }
 };
 
-export const useOpenInWindow = (url: string, options: UseOpenInWindowOptions = {}) => {
+export const useOpenInWindow = (options: UseOpenInWindowOptions = { url: '' }) => {
   const [newWindowHandler, setNewWindowHandler] = useState<Window | null>();
   const openInWindow = useCallback(
-    (event: React.MouseEvent) => {
+    (event: React.MouseEvent, callbackOptions: UseOpenInWindowOptions = { url: '' }) => {
       if (event) {
         event.preventDefault();
       }
 
       const { specs } = options;
       const { specs: defaultSpecs } = defaultOptions;
-      const mixedOptions = { ...defaultOptions, ...options };
-      const mixedSpecs = { ...defaultSpecs, ...specs };
+      const { specs: callbackSpecs } = callbackOptions;
+      const mixedOptions = { ...defaultOptions, ...options, ...callbackOptions };
+      const mixedSpecs = { ...defaultSpecs, ...specs, ...callbackSpecs };
       const { focus, name, centered } = mixedOptions;
       let windowOptions = '';
 
@@ -84,14 +87,14 @@ export const useOpenInWindow = (url: string, options: UseOpenInWindowOptions = {
         windowOptions = windowOptionsMapper(mixedSpecs);
       }
 
-      const newWindow = window.open(url, name, windowOptions);
+      const newWindow = window.open(mixedOptions.url, name, windowOptions);
 
       // Puts focus on the newWindow
       if (focus && newWindow) newWindow.focus();
 
       setNewWindowHandler(newWindow);
     },
-    [url, options, setNewWindowHandler]
+    [options, setNewWindowHandler]
   );
 
   return [openInWindow, newWindowHandler] as [() => void, Window | null | undefined];

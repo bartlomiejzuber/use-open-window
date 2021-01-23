@@ -8,7 +8,7 @@ describe("useOpenInWindow()", () => {
   it("should wait for callback invoke", () => {
     const spy = jest.spyOn(global as any, "open");
     const HookTestComponent: React.FunctionComponent<any> = () => {
-      const [handleWindowOpen] = useOpenInWindow("blabla");
+      const [handleWindowOpen] = useOpenInWindow({ url: "blabla" });
       return (
         <div>
           <div data-testid="onClickHandler" onClick={handleWindowOpen}></div>
@@ -26,7 +26,7 @@ describe("useOpenInWindow()", () => {
     (global as any).open = windowOpenMock;
     const url = "/blabla";
     const HookTestComponent: React.FunctionComponent<any> = () => {
-      const [handleWindowOpen] = useOpenInWindow(url);
+      const [handleWindowOpen] = useOpenInWindow({ url });
       return (
         <div>
           <div data-testid="onClickHandler" onClick={handleWindowOpen}></div>
@@ -51,7 +51,7 @@ describe("useOpenInWindow()", () => {
     (global as any).open = jest.fn(() => newWindowMock);
     const url = "/blabla";
     const HookTestComponent: React.FunctionComponent<any> = () => {
-      const [handleWindowOpen] = useOpenInWindow(url);
+      const [handleWindowOpen] = useOpenInWindow({ url });
       return (
         <div>
           <div data-testid="onClickHandler" onClick={handleWindowOpen}></div>
@@ -72,7 +72,7 @@ describe("useOpenInWindow()", () => {
     (global as any).open = jest.fn(() => newWindowMock);
     const url = "/blabla";
     const HookTestComponent: React.FunctionComponent<any> = () => {
-      const [handleWindowOpen] = useOpenInWindow(url, { centered: false });
+      const [handleWindowOpen] = useOpenInWindow({ url, centered: false });
       return (
         <div>
           <div data-testid="onClickHandler" onClick={handleWindowOpen}></div>
