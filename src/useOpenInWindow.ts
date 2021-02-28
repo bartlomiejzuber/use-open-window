@@ -86,16 +86,16 @@ const getUrlAndOptions = (
   optionsArg?: UseOpenInWindowOptions
 ) => {
   let url = "";
-  let options = null
+  let options = {};
   if (typeof urlOrOptions === "object") {
     url = urlOrOptions.url;
-    options = urlOrOptions as UseOpenInWindowOptions;
+    options = urlOrOptions;
   } else {
     url = urlOrOptions;
-    options = optionsArg!;
+    options = optionsArg || {};
   }
 
-  return [url, options] as const;
+  return [url, options] as [string, UseOpenInWindowOptions];
 };
 
 export function useOpenInWindow(

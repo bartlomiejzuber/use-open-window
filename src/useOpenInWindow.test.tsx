@@ -5,10 +5,19 @@ import { fireEvent, render } from "@testing-library/react";
 import { useOpenInWindow } from "./useOpenInWindow";
 
 describe("useOpenInWindow()", () => {
+  let orgImpl: any;
+  beforeEach(() => {
+    orgImpl = (global as any).open;
+  });
+
+  afterEach(() => {
+    (global as any).open = orgImpl;
+  });
+
   describe("url as first arg", () => {
     it("should wait for callback invoke", () => {
       const spy = jest.spyOn(global as any, "open");
-      const HookTestComponent: React.FunctionComponent<any> = () => {
+      const HookTestComponent: React.FC<any> = () => {
         const [handleWindowOpen] = useOpenInWindow("blabla");
         return (
           <div>
@@ -26,7 +35,7 @@ describe("useOpenInWindow()", () => {
       const windowOpenMock = jest.fn();
       (global as any).open = windowOpenMock;
       const url = "/blabla";
-      const HookTestComponent: React.FunctionComponent<any> = () => {
+      const HookTestComponent: React.FC<any> = () => {
         const [handleWindowOpen] = useOpenInWindow(url);
         return (
           <div>
@@ -51,7 +60,7 @@ describe("useOpenInWindow()", () => {
       };
       (global as any).open = jest.fn(() => newWindowMock);
       const url = "/blabla";
-      const HookTestComponent: React.FunctionComponent<any> = () => {
+      const HookTestComponent: React.FC<any> = () => {
         const [handleWindowOpen] = useOpenInWindow(url);
         return (
           <div>
@@ -72,7 +81,7 @@ describe("useOpenInWindow()", () => {
       };
       (global as any).open = jest.fn(() => newWindowMock);
       const url = "/blabla";
-      const HookTestComponent: React.FunctionComponent<any> = () => {
+      const HookTestComponent: React.FC<any> = () => {
         const [handleWindowOpen] = useOpenInWindow(url, { centered: false });
         return (
           <div>
@@ -95,7 +104,7 @@ describe("useOpenInWindow()", () => {
   describe("options as first arg", () => {
     it("should wait for callback invoke when options passed as first argument", () => {
       const spy = jest.spyOn(global as any, "open");
-      const HookTestComponent: React.FunctionComponent<any> = () => {
+      const HookTestComponent: React.FC<any> = () => {
         const [handleWindowOpen] = useOpenInWindow({ url: "blabla" });
         return (
           <div>
@@ -113,7 +122,7 @@ describe("useOpenInWindow()", () => {
       const windowOpenMock = jest.fn();
       (global as any).open = windowOpenMock;
       const url = "/blabla";
-      const HookTestComponent: React.FunctionComponent<any> = () => {
+      const HookTestComponent: React.FC<any> = () => {
         const [handleWindowOpen] = useOpenInWindow({ url });
         return (
           <div>
@@ -138,7 +147,7 @@ describe("useOpenInWindow()", () => {
       };
       (global as any).open = jest.fn(() => newWindowMock);
       const url = "/blabla";
-      const HookTestComponent: React.FunctionComponent<any> = () => {
+      const HookTestComponent: React.FC<any> = () => {
         const [handleWindowOpen] = useOpenInWindow({ url });
         return (
           <div>
@@ -154,20 +163,22 @@ describe("useOpenInWindow()", () => {
     });
   });
 
-  describe.only("options passed through callback", () => {
+  describe("options passed through callback", () => {
     it("should call window.open with overridden settings", () => {
       const windowOpenMock = jest.fn();
       (global as any).open = windowOpenMock;
       const url = "/blabla";
       const overriddenUrl = "/blabla2";
-      const HookTestComponent: React.FunctionComponent<any> = () => {
+      const HookTestComponent: React.FC<any> = () => {
         const [handleWindowOpen] = useOpenInWindow({ url });
 
         return (
           <div>
             <div
               data-testid="onClickHandler"
-              onClick={() => handleWindowOpen({} as any, { url: overriddenUrl })}
+              onClick={() =>
+                handleWindowOpen({} as any, { url: overriddenUrl })
+              }
             ></div>
           </div>
         );
@@ -187,7 +198,7 @@ describe("useOpenInWindow()", () => {
       const windowOpenMock = jest.fn();
       (global as any).open = windowOpenMock;
       const url = "/blabla";
-      const HookTestComponent: React.FunctionComponent<any> = () => {
+      const HookTestComponent: React.FC<any> = () => {
         const [handleWindowOpen] = useOpenInWindow({ url });
 
         return (
