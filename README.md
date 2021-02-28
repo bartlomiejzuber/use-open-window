@@ -31,30 +31,56 @@ Link to npm:
 
 ## Usage
 
-```javascript
-import React from 'react';
-import { useOpenInWindow }  from 'use-open-window';
+- With URL and options passed to hook
+  ```javascript
+  import React from 'react';
+  import { useOpenInWindow }  from 'use-open-window';
 
-const url = 'https://www.google.com/';
-const options = {
-   centered: true, /* default */
-   spec: {
-      width: 800, /* window width */
-      height: 600, /* window height */
-   }
-};
-const App = () => {
-  const [handleWindowOpen, newWindowHandle] = useOpenInWindow(url, options);
-  
-  return (
-    <div className="App">
-      <div onClick={handleWindowOpen}>Click me</div>
-    </div>
-  );
-}
+  const url = 'https://www.google.com/';
+  const options = {
+    centered: true, /* default */
+    spec: {
+        width: 800, /* window width */
+        height: 600, /* window height */
+    }
+  };
+  const App = () => {
+    const [handleWindowOpen, newWindowHandle] = useOpenInWindow(url, options);
+    
+    return (
+      <div className="App">
+        <div onClick={handleWindowOpen}>Click me</div>
+      </div>
+    );
+  }
 
-export default App;
-```
+  export default App;
+  ```
+- With URL and options passed inside callback
+  ```javascript
+  import React from 'react';
+  import { useOpenInWindow }  from 'use-open-window';
+
+  const options = {
+    url: 'https://www.google.com/' /* url to page to open */
+    centered: true, /* default */
+    spec: {
+        width: 800, /* window width */
+        height: 600, /* window height */
+    }
+  };
+  const App = () => {
+    const [handleWindowOpen, newWindowHandle] = useOpenInWindow();
+    
+    return (
+      <div className="App">
+        <div onClick={(ev) => handleWindowOpen(ev, options)}>Click me</div>
+      </div>
+    );
+  }
+
+  export default App;
+  ```
 
 [DEMO](https://use-open-window-demo.netlify.app/)
 
