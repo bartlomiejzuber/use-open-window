@@ -39,7 +39,7 @@ Link to npm:
   const url = 'https://www.google.com/';
   const options = {
     centered: true, /* default */
-    spec: {
+    specs: {
         width: 800, /* window width */
         height: 600, /* window height */
     }
@@ -64,7 +64,7 @@ Link to npm:
   const options = {
     url: 'https://www.google.com/' /* url to page to open */
     centered: true, /* default */
-    spec: {
+    specs: {
         width: 800, /* window width */
         height: 600, /* window height */
     }
