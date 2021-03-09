@@ -29,6 +29,8 @@ yarn add use-open-window
 Link to npm:
 [https://www.npmjs.com/package/use-open-window](https://www.npmjs.com/package/use-open-window)
 
+### Click here to see [DEMO](https://use-open-window-demo.netlify.app/)
+
 ## Usage
 
 - With URL and options passed to hook
@@ -81,8 +83,6 @@ Link to npm:
 
   export default App;
   ```
-
-[DEMO](https://use-open-window-demo.netlify.app/)
 
 ### Hook params
 
