@@ -75,6 +75,33 @@ describe("useOpenInWindow()", () => {
       expect(newWindowMock.focus).toHaveBeenCalledTimes(1);
     });
 
+    it("should not fail when second param not passed", () => {
+      const focusSpy = jest.fn();
+      const spy = jest
+        .spyOn(global as any, "open")
+        .mockImplementationOnce(() => ({
+          focus: focusSpy,
+        }));
+  
+      const HookTestComponent: React.FC<any> = () => {
+        const [handleWindowOpen] = useOpenInWindow("blabla");
+        return (
+          <div>
+            <div data-testid="onClickHandler" onClick={handleWindowOpen}></div>
+          </div>
+        );
+      };
+  
+      const { getByTestId } = render(<HookTestComponent />);
+  
+      expect(spy).not.toHaveBeenCalled();
+  
+      fireEvent.click(getByTestId("onClickHandler"));
+  
+      expect(spy).toHaveBeenCalled();
+      expect(focusSpy).toHaveBeenCalled();
+    });
+
     it("should open not centered window", () => {
       const newWindowMock = {
         focus: jest.fn(),
