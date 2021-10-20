@@ -31,6 +31,10 @@ Link to npm:
 
 ### Click here to see [DEMO](https://use-open-window-demo.netlify.app/)
 
+### Demo
+
+![Demo GIF](/assets/demo-gif.gif)
+
 ## Usage
 
 - With URL and options passed to hook
