@@ -17,9 +17,11 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .App div {
+  margin-top: 10px;
   border: 1px solid black;
   border-radius: 4px;
   padding: 8px;
