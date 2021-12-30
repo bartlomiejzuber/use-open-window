@@ -8,6 +8,7 @@
   "files": [
     "dist"
   ],
+  "sideEffects": false,
   "scripts": {
     "check-types": "tsc --noEmit",
     "check-types:watch": "yarn check-types --watch",
