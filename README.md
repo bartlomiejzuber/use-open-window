@@ -14,6 +14,8 @@
 
 Useful & super tiny (less than 1KB ✔️) (❤️obvious dep on React only) hook to open links in new window.
 
+> **Note**: Version `^1.4.0` has dependency on `React 18`, if you wish to use it with `React 17` then use version `^1.3.0` of this hook.
+
 ## Installation
 
 ```sh
@@ -39,7 +41,6 @@ Link to npm:
 
 - With URL and options passed to hook
   ```javascript
-  import React from 'react';
   import { useOpenInWindow }  from 'use-open-window';
 
   const url = 'https://www.google.com/';
@@ -64,7 +65,6 @@ Link to npm:
   ```
 - With URL and options passed inside callback
   ```javascript
-  import React from 'react';
   import { useOpenInWindow }  from 'use-open-window';
 
   const options = {
