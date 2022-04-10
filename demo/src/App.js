@@ -27,7 +27,6 @@ const App = () => {
       <pre>
         <code class="language-javascript">
           {`
-import * as React from 'react';
 import { useOpenInWindow }  from 'use-open-window';
 
 const url = 'https://www.google.com/';
