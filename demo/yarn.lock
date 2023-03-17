@@ -9281,11 +9281,6 @@ tslib@^2.0.3:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
   integrity sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ==
 
-tslib@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
-  integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
-
 tsutils@^3.21.0:
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-3.21.0.tgz#b48717d394cea6c1e096983eed58e9d61715b623"
@@ -9472,12 +9467,10 @@ url-parse@^1.5.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
-use-open-window@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/use-open-window/-/use-open-window-1.4.0.tgz#13552ad89d99b637c8613bf2fb48afcfa1b6bd43"
-  integrity sha512-KBUzwqE8CCBIKPVXlCk2pWXXuFMhdJjhU5zeXhFsR9wb612lyD6QZixweHfTxTuP75yqjbxaims3F21w4m6qeg==
-  dependencies:
-    tslib "^2.3.1"
+use-open-window@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/use-open-window/-/use-open-window-1.5.0.tgz#6501ef6260be13822257be09dabdde177bb7bd99"
+  integrity sha512-ZgDji679yJXb4QXaCAyPa/PZUSTvDnihkY06Q+OEb7CMndxxL83FLTr4+I2nYD1IGVkYXqq51V/AbSZeguOL1g==
 
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
