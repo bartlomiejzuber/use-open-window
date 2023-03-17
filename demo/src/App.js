@@ -7,10 +7,9 @@ hljs.registerLanguage("javascript", javascript);
 
 const url = "https://www.google.com/";
 const options = {
-  centered: true /* default */,
   spec: {
-    width: 800 /* window width */,
-    height: 600 /* window height */,
+    width: 100 /* window width */,
+    height: 100 /* window height */,
   },
 };
 
@@ -25,7 +24,7 @@ const App = () => {
   return (
     <div className="App">
       <pre>
-        <code class="language-javascript">
+        <code className="language-javascript">
           {`
 import { useOpenInWindow }  from 'use-open-window';
 
