@@ -3,6 +3,7 @@ import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 
 import { useOpenInWindow } from "./useOpenInWindow";
+import { windowOptionsMapper } from "./windowOptionsMapper";
 
 describe("useOpenInWindow()", () => {
   let orgImpl: any;
@@ -54,6 +55,33 @@ describe("useOpenInWindow()", () => {
       );
     });
 
+    it.only("should call window.open with correct width and height passed in specs", () => {
+      const windowOpenMock = jest.fn();
+      (global as any).open = windowOpenMock;
+      const specs = {
+        width: 100,
+        height: 100,
+      };
+      const url = "/blabla";
+      const HookTestComponent: React.FC<any> = () => {
+        const [handleWindowOpen] = useOpenInWindow(url, { specs });
+        return (
+          <div>
+            <div data-testid="onClickHandler" onClick={handleWindowOpen}></div>
+          </div>
+        );
+      };
+
+      const { getByTestId } = render(<HookTestComponent />);
+      fireEvent.click(getByTestId("onClickHandler"));
+
+      expect(windowOpenMock).toHaveBeenCalledWith(
+        url,
+        expect.any(String),
+        expect.stringContaining(windowOptionsMapper(specs))
+      );
+    });
+
     it("should focus new window", () => {
       const newWindowMock = {
         focus: jest.fn(),
@@ -82,7 +110,7 @@ describe("useOpenInWindow()", () => {
         .mockImplementationOnce(() => ({
           focus: focusSpy,
         }));
-  
+
       const HookTestComponent: React.FC<any> = () => {
         const [handleWindowOpen] = useOpenInWindow("blabla");
         return (
@@ -91,13 +119,13 @@ describe("useOpenInWindow()", () => {
           </div>
         );
       };
-  
+
       const { getByTestId } = render(<HookTestComponent />);
-  
+
       expect(spy).not.toHaveBeenCalled();
-  
+
       fireEvent.click(getByTestId("onClickHandler"));
-  
+
       expect(spy).toHaveBeenCalled();
       expect(focusSpy).toHaveBeenCalled();
     });

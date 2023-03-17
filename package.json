@@ -1,9 +1,16 @@
 {
   "name": "use-open-window",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Fancy React hook for open links in windows",
-  "main": "dist/index.js",
-  "module": "dist/use-open-window.esm.js",
+  "type": "module",
+  "source": "src/index.js",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.module.js",
+  "unpkg": "./dist/index.umd.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
@@ -14,25 +21,23 @@
     "check-types:watch": "yarn check-types --watch",
     "lint": "yarn eslint ./src/**/*.{ts,tsx}",
     "lint-fix": "yarn lint --fix",
-    "build": "tsdx build --format cjs,esm,umd -d",
+    "build": "microbundle src/*.ts",
+    "dev": "microbundle src/*.ts watch",
     "test": "jest",
     "coverage": "jest --coverage"
   },
   "devDependencies": {
-    "@testing-library/react": "^13.0.0",
-    "@types/jest": "^27.0.0",
-    "@types/react": "^18.0.1",
-    "@types/react-dom": "^18.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
     "jest": "^27.4.5",
+    "microbundle": "^0.15.1",
     "mocha": "^9.1.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "ts-jest": "^27.1.2",
-    "tsdx": "^0.14.1",
-    "typescript": "^4.5.4"
-  },
-  "resolutions": {
-    "tslib": "2.4.0"
+    "ts-jest": "^29.0.5",
+    "typescript": "^5.0.2"
   },
   "peerDependencies": {
     "react": "^18.0.0",
@@ -61,8 +66,5 @@
   "bugs": {
     "url": "https://github.com/bartlomiejzuber/useOpenInWindow/issues"
   },
-  "homepage": "https://github.com/bartlomiejzuber/useOpenInWindow#readme",
-  "dependencies": {
-    "tslib": "^2.3.1"
-  }
+  "homepage": "https://github.com/bartlomiejzuber/useOpenInWindow#readme"
 }

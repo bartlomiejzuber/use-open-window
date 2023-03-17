@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "target": "es5",
+    "target": "ES6",
     "lib": ["ESNext", "DOM"],
     "jsx": "react",
     "noImplicitAny": true,
@@ -11,11 +11,12 @@
     "esModuleInterop": true,
     "importHelpers": true,
     "outDir": "dist/",
-    "types": ["react", "jest", "node"]
+    "moduleResolution": "node"
   },
   "include": ["src/**/*"],
   "exclude": [
     "node_modules",
+    "src/*.test.ts",
     "**/*.spec.ts",
     "**/*.test.tsx",
     "**/*.test.ts",
