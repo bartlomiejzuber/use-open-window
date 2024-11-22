@@ -45,11 +45,6 @@ export interface UseOpenInWindowOptions {
     left?: number;
     /* The top position of the window. Negative values not allowed */
     top?: number;
-    /* Whether or not to display the window in theater mode. Default is no. IE only */
-    channelmode?: SpecsOption;
-    directories?: SpecsOption;
-    /* Whether or not to display the browser in full-screen mode. Default is no. A window in full-screen mode must also be in theater mode. IE only */
-    fullscreen?: SpecsOption;
     /* Whether or not to display the address field. Opera only */
     location?: SpecsOption;
     /*	Whether or not to display the menu bar */
