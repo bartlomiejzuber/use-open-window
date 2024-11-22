@@ -5,6 +5,12 @@ import { windowOptionsMapper } from "./windowOptionsMapper";
 
 export type SpecsOption = "yes" | "no" | 1 | 0;
 
+export type SecurityFeatures = {
+  noopener?: boolean;
+  noreferrer?: boolean;
+  nofollow?: boolean;
+};
+
 export type WithUrl = {
   /**
    * A DOMString indicating the URL of the resource to be loaded.
@@ -27,6 +33,8 @@ export interface UseOpenInWindowOptions {
   centered?: boolean;
   /* put window in focus, default true */
   focus?: boolean;
+  /* Specifies the security features of the new window */
+  security?: SecurityFeatures;
   /* Optional. A comma-separated list of items, no whitespaces. */
   specs?: {
     /* The height of the window. Min. value is 100, default is 800*/
@@ -74,6 +82,11 @@ export const defaultOptions: Required<UseOpenInWindowOptions> = {
   name: "_blank",
   centered: true,
   focus: true,
+  security: {
+    noopener: true,
+    noreferrer: true,
+    nofollow: false,
+  },
   specs: {
     height: 300,
     width: 600,
@@ -98,6 +111,14 @@ const getUrlAndOptions = (
   return [url, options] as [string, UseOpenInWindowOptions];
 };
 
+const getSecurityString = (security: SecurityFeatures): string => {
+  const features = [];
+  if (security.noopener) features.push("noopener");
+  if (security.noreferrer) features.push("noreferrer");
+  if (security.nofollow) features.push("nofollow");
+  return features.join(",");
+};
+
 export function useOpenInWindow(
   options: UseOpenInWindowOptionsWithUrl
 ): UseOpenInWindowReturnWithOptionsArgFirst;
@@ -113,45 +134,40 @@ export function useOpenInWindow(
 
   const [url, options] = getUrlAndOptions(urlOrOptions, optionsArg);
   const openInWindow = useCallback(
-    (
-      event: React.MouseEvent,
-      callbackOptions?: UseOpenInWindowOptionsWithUrl
-    ) => {
+    (event: React.MouseEvent, callbackOptions?: UseOpenInWindowOptionsWithUrl) => {
       event?.preventDefault?.();
 
-      const { specs } = options;
+      const mixedOptions = { ...defaultOptions, ...options, ...(callbackOptions || {}) };
       const { specs: defaultSpecs } = defaultOptions;
-      let mixedOptions = { ...defaultOptions, ...options };
-      let mixedSpecs = { ...defaultSpecs, ...specs };
-      let urlToOpen = callbackOptions?.url || url;
+      const { specs, security, focus, name, centered } = mixedOptions;
+      const mixedSpecs = { ...defaultSpecs, ...specs };
+      const urlToOpen = callbackOptions?.url || url;
 
-      // If options passed as first argument then serve different callback
-      if (typeof callbackOptions === "object") {
-        const { specs: callbackSpecs } = callbackOptions;
-        mixedOptions = { ...mixedOptions, ...callbackOptions };
-        mixedSpecs = { ...mixedSpecs, ...callbackSpecs };
-      }
-
-      const { focus, name, centered } = mixedOptions;
-      let windowOptions = "";
+      let windowFeatures = [];
 
       if (centered) {
         const { width, height, ...restSpecs } = mixedSpecs;
         const centerPoint = calculateCenterPoint(width, height);
-        windowOptions = windowOptionsMapper({
+        windowFeatures.push(windowOptionsMapper({
           width,
           height,
           ...centerPoint,
           ...restSpecs,
-        });
+        }));
       } else {
-        windowOptions = windowOptionsMapper(mixedSpecs);
+        windowFeatures.push(windowOptionsMapper(mixedSpecs));
       }
 
-      const newWindow = window.open(urlToOpen, name, windowOptions);
+      const securityFeatures = getSecurityString({ ...defaultOptions.security, ...security });
+      if (securityFeatures) {
+        windowFeatures.push(securityFeatures);
+      }
 
-      // Puts focus on the newWindow
-      if (focus && newWindow) newWindow.focus();
+      const newWindow = window.open(urlToOpen, name, windowFeatures.join(","));
+
+      if (focus && newWindow) {
+        newWindow.focus();
+      }
 
       setNewWindowHandler(newWindow);
     },
