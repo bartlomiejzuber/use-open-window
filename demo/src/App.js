@@ -31,6 +31,7 @@ import { useOpenInWindow }  from 'use-open-window';
 const url = 'https://www.google.com/';
 const options = {
   centered: true, /* default */
+  /* for more options, refer to https://github.com/bartlomiejzuber/use-open-window?tab=readme-ov-file#options */
   specs: {
       width: 800, /* window width */
       height: 600, /* window height */

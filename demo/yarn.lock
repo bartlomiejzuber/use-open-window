@@ -9467,10 +9467,10 @@ url-parse@^1.5.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
-use-open-window@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/use-open-window/-/use-open-window-1.5.0.tgz#6501ef6260be13822257be09dabdde177bb7bd99"
-  integrity sha512-ZgDji679yJXb4QXaCAyPa/PZUSTvDnihkY06Q+OEb7CMndxxL83FLTr4+I2nYD1IGVkYXqq51V/AbSZeguOL1g==
+use-open-window@^1.5.5:
+  version "1.5.5"
+  resolved "https://registry.yarnpkg.com/use-open-window/-/use-open-window-1.5.5.tgz#5c300ebd4dec1045b436958e4b78fc7bb4e514f6"
+  integrity sha512-xHhQ6V6ILcSQzoa3b0CZ6JT84D2xhMoAMsC/7lJTaNPJQLsNFA7wt/h+BvHrugyhPUIGkl/aN3ZQASMss/qw5Q==
 
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"

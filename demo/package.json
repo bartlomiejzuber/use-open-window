@@ -10,7 +10,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.1",
-    "use-open-window": "^1.5.0",
+    "use-open-window": "^1.5.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
