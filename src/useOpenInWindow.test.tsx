@@ -55,7 +55,7 @@ describe("useOpenInWindow()", () => {
       );
     });
 
-    it.only("should call window.open with correct width and height passed in specs", () => {
+    it("should call window.open with correct width and height passed in specs", () => {
       const windowOpenMock = jest.fn();
       (global as any).open = windowOpenMock;
       const specs = {
